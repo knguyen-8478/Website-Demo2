@@ -2,15 +2,6 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <body>
   <div id="navbar"></div>
-
-  <script>
-    fetch("navbar.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("navbar").innerHTML = data;
-      });
-  </script>
-
 </header>
 <!--- Member--->
   
@@ -231,3 +222,25 @@
         <li><strong>Project Sponsor:</strong></li> <a href="https://www.onr.navy.mil/" class="text-slate-700 hover:text-blue-900 underline"> Office of Naval Research</a></li>
         </ul>   
       </div>  
+
+    </section>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script>
+    function loadComponent(id, file) {
+      fetch(file)
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById(id).innerHTML = data;
+        });
+    }
+
+    loadComponent("navbar", "navbar.html");
+    loadComponent("footer", "footer.html");
+  </script>
+
+</body>
+</html>

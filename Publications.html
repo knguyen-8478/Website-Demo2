@@ -4,14 +4,6 @@
 <body>
   <div id="navbar"></div>
 
-  <script>
-    fetch("navbar.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("navbar").innerHTML = data;
-      });
-  </script>
-
 <nav class="max-w-4xl mx-auto text-center bg-white shadow">
   <ul class="flex justify-center gap-8 p-4">
     <li><a href="#Journal-Publications" class="hover:text-orange-500">Journal Publications</a></li>
@@ -194,3 +186,23 @@
   </ol>
 </div>
 </section>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script>
+    function loadComponent(id, file) {
+      fetch(file)
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById(id).innerHTML = data;
+        });
+    }
+
+    loadComponent("navbar", "navbar.html");
+    loadComponent("footer", "footer.html");
+  </script>
+
+</body>
+</html>
